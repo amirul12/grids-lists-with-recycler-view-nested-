@@ -30,11 +30,24 @@ public class DataServices {
     public ArrayList<Station> getRecentStations (){
 
         ArrayList<Station> list = new ArrayList<>();
-        list.add(new Station("Recent stations show","amirul"));
-        list.add(new Station("Recent stations show","amirul"));
-        list.add(new Station("Recent stations show","amirul"));
-        list.add(new Station("Recent stations show","amirul"));
-        list.add(new Station("Recent stations show","amirul"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+        list.add(new Station("Recent stations show","profile"));
+
 
         return list;
     }
