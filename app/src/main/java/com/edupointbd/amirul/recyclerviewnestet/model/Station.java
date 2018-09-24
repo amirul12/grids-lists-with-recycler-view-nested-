@@ -4,19 +4,19 @@ public class Station {
 
     final String DRAWABLE = "drawable/";
     private String stationTitle;
-    private String imaUrl;
+    private String imaUri;
 
-    public Station(String stationTitle, String imaUrl) {
+    public Station(String stationTitle, String imaUri) {
         this.stationTitle = stationTitle;
-        this.imaUrl = imaUrl;
+        this.imaUri = imaUri;
     }
 
     public String getStationTitle() {
         return stationTitle;
     }
 
-    public String getImaUrl() {
-        return imaUrl;
+    public String getImaUri() {
+        return DRAWABLE + imaUri;
     }
 }
 

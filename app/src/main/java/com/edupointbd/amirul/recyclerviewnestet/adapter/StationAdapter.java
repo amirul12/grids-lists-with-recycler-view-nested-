@@ -2,8 +2,12 @@ package com.edupointbd.amirul.recyclerviewnestet.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.edupointbd.amirul.recyclerviewnestet.R;
+import com.edupointbd.amirul.recyclerviewnestet.activities.MainActivity;
 import com.edupointbd.amirul.recyclerviewnestet.holders.StationViewHolder;
 import com.edupointbd.amirul.recyclerviewnestet.model.Station;
 
@@ -18,19 +22,37 @@ public class StationAdapter extends RecyclerView.Adapter<StationViewHolder> {
         this.stations = stations;
     }
 
-    @NonNull
-    @Override
-    public StationViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
-    }
 
     @Override
-    public void onBindViewHolder(@NonNull StationViewHolder stationViewHolder, int i) {
+    public void onBindViewHolder(@NonNull StationViewHolder holder, int position) {
+
+        final Station station = stations.get(position);
+
+        holder.updateUI(station);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //load Details screen
+                MainActivity.getMainActivity().loadDetailsScreen(station);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return stations.size();
     }
+
+
+
+    @NonNull
+    @Override
+    public StationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View cardStation = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_station,parent,false);
+        return new StationViewHolder(cardStation);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package com.edupointbd.amirul.recyclerviewnestet.fragments;
 
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -73,6 +74,7 @@ public class StationFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView)v.findViewById(R.id.content_recycler);
         recyclerView.setHasFixedSize(true);
 
+        recyclerView.addItemDecoration( new HorizontalSpaceItemDecoder(30));
 
         StationAdapter adapter ;
         if(station_type == STATION_TYPE_FEATURE){
@@ -97,4 +99,19 @@ public class StationFragment extends Fragment {
 
     }
 
+}
+
+class HorizontalSpaceItemDecoder extends RecyclerView.ItemDecoration{
+
+    private final int space;
+
+    public HorizontalSpaceItemDecoder(int space) {
+        this.space = space;
+    }
+
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        outRect.right = space;
+    }
 }
