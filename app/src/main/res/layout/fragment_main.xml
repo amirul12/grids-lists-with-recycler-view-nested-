@@ -9,14 +9,69 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:text=" Hello world"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginLeft="10dp"
+                android:text="Friday Evening"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:padding="0dp"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:text="playing something"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <FrameLayout
+                android:id="@+id/container_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></FrameLayout>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginLeft="10dp"
+                android:text="Friday Evening"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:padding="0dp"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:text="playing something"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@+id/container_middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></FrameLayout>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginLeft="10dp"
+                android:text="Friday Evening"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:padding="0dp"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:text="playing something"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@+id/container_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></FrameLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
