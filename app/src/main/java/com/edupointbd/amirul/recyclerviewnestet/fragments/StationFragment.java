@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.edupointbd.amirul.recyclerviewnestet.R;
 import com.edupointbd.amirul.recyclerviewnestet.adapter.StationAdapter;
+import com.edupointbd.amirul.recyclerviewnestet.services.DataServices;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,15 +19,18 @@ import com.edupointbd.amirul.recyclerviewnestet.adapter.StationAdapter;
  * create an instance of this fragment.
  */
 public class StationFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
+    private static final String ARG_STATION_TYPE = "station_type";
+
+
+
+
+    public static final int STATION_TYPE_FEATURE = 0;
+    public static final int STATION_TYPE_RECENT = 1;
+    public static final int STATION_TYPE_PARTY = 2;
+
+    private int station_type;
 
     public StationFragment() {
         // Required empty public constructor
@@ -36,16 +40,16 @@ public class StationFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param station_type Parameter 1.
+
      * @return A new instance of fragment StationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StationFragment newInstance(String param1, String param2) {
+    public static StationFragment newInstance(int station_type) {
         StationFragment fragment = new StationFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_STATION_TYPE, station_type);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,8 +58,9 @@ public class StationFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
+            station_type = getArguments().getInt(ARG_STATION_TYPE);
+
         }
     }
 
@@ -69,7 +74,19 @@ public class StationFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
 
-        StationAdapter adapter = new StationAdapter();
+        StationAdapter adapter ;
+        if(station_type == STATION_TYPE_FEATURE){
+            adapter = new StationAdapter(DataServices.getInstance().getFeaturesStations());
+
+        }else if (station_type == STATION_TYPE_RECENT){
+
+            adapter = new StationAdapter(DataServices.getInstance().getRecentStations());
+        }else {
+
+            adapter = new StationAdapter(DataServices.getInstance().getPartyStation());
+        }
+
+
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
